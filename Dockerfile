@@ -1,13 +1,13 @@
-##Descargamos una versión concreta de UBUNTU, a través del tag 
+##Download a specific version of Ubuntu using the tag
 FROM ubuntu 
-LABEL Apasoft Formacion="apasoft.formacion@gmail.com" 
-##Actualizamos el sistema 
+LABEL Apasoft Training="apasoft.formacion@gmail.com" 
+##Update the system
 RUN apt-get update 
-##Instalamos nginx 
+##Install nginx
 RUN apt-get install -y nginx 
-##Creamos un fichero index.html en el directorio por defecto de nginx 
-RUN echo '<h1>Mi primer Dockerfile</h1>' > /var/www/html/index.html 
-##Arrancamos NGINX a través de ENTRYPOINT para que no pueda ser ##modificar en la creación del contenedor 
+##Create an index.html file in nginx's default directory
+RUN echo '<h1>My first Dockerfile</h1>' > /var/www/html/index.html 
+##Start NGINX with ENTRYPOINT so it cannot be modified when creating the container
 ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"] 
-##Exponemos el Puerto 80 
+##Expose port 80
 EXPOSE 80 
